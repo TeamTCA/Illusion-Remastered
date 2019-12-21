@@ -19,7 +19,7 @@ pkg up -y && pkg upgrade -y
 su -c 'setenforce 0'
 
 # Install dependencies
-time apt install rsync aapt neofetch toilet ncurses-utils tsu openssl-tool ruby -y
+time apt install rsync aapt neofetch toilet ncurses-utils tsu openssl-tool ruby wget -y
 
 # Fetch the ELF and setup
 [[ "$(uname -m)" =~ 'aarch64' ]] && {
