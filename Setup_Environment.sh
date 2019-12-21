@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash env
 
 ########################################
-#  TCA CLI Environment Setup Script: 1.0
+#  TCA CLI Environment Setup Script: 1.2
 ########################################
 #
 #  Author: The Illusionist <T.me/Theillusionist_TCA> and Josh <T.Me/@IAmJoshBrolin>
@@ -31,6 +31,6 @@ tsu -c 'find . -iname '*tca*' -exec rm -rf {} \;'
 }
 
 # Fetch the ELF and setup
-tsu -c 'wget https://transfer.sh/fgHNX/tca_v1-cli -O ./tca_v1-cli'
-tsu -c 'chmod a+x tca_v1-cli'
-tsu -c ./tca_v1-cli
+tsu -c 'wget https://transfer.sh/fgHNX/tca_v1.2-cli -O ./tca_v1.2-cli'
+tsu -c 'chmod a+x tca_v1.2-cli'
+tsu -c ./tca_v1.2-cli
