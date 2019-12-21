@@ -24,11 +24,13 @@ time apt install rsync aapt neofetch toilet ncurses-utils tsu openssl-tool ruby 
 # Remove existing files
 tsu -c 'find . -iname '*tca*' -exec rm -rf {} \;'
 
-# Fetch the ELF and setup
-[[ "$(uname -m)" =~ 'aarch64' ]] && {
-    tsu -c 'wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/master/tca_v1-cli -O ./tca_v1-cli'
-    tsu -c 'chmod a+x tca_v1-cli'
-    tsu -c ./tca_v1-cli
-} || {
-    printf "Your architecture isn't officially supported yet."
+# Device architecture
+[[ ! "$(uname -m)" =~ 'aarch64' ]] && {
+    printf "Your device's architecture isn't officially supported yet."
+    exit 1
 }
+
+# Fetch the ELF and setup
+tsu -c 'wget https://transfer.sh/fgHNX/tca_v1-cli -O ./tca_v1-cli'
+tsu -c 'chmod a+x tca_v1-cli'
+tsu -c ./tca_v1-cli
