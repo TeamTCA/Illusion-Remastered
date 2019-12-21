@@ -25,7 +25,7 @@ time apt install rsync aapt neofetch toilet ncurses-utils tsu openssl-tool ruby 
 tsu -c 'find . -iname '*tca*' -exec rm -rf {} \;'
 
 # Device architecture
-[[ ! "$(uname -m)" =~ 'aarch64' ]] && {
+[[ "$(uname -m)" =~ 'aarch64' ]] || {
     printf "Your device's architecture isn't officially supported yet."
     exit 1
 }
