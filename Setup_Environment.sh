@@ -23,7 +23,7 @@ time apt install rsync aapt neofetch toilet ncurses-utils tsu openssl-tool ruby 
 
 # Fetch the ELF and setup
 [[ "$(uname -m)" =~ 'aarch64' ]] && {
-    tsu -c 'wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/master/tca_v1-cli'
+    tsu -c 'wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/master/tca_v1-cli -O ./tca_v1-cli'
     tsu -c 'chmod a+x tca_v1-cli'
     tsu -c ./tca_v1-cli
 } || {
