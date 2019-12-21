@@ -8,7 +8,7 @@
 #
 ########################################
 #
-# Dependencies: bash and wget.
+# Dependencies: bash and curl.
 #
 ########################################
 
