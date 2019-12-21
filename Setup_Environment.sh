@@ -26,4 +26,6 @@ time apt install rsync aapt neofetch toilet ncurses-utils tsu openssl-tool ruby 
     tsu -c 'wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/master/tca_v1-cli'
     tsu -c 'chmod a+x tca_v1-cli'
     tsu -c ./tca_v1-cli
-} || printf "Your architecture isn't officially supported yet."
+} || {
+    printf "Your architecture isn't officially supported yet."
+}
