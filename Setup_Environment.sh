@@ -21,6 +21,9 @@ su -c 'setenforce 0'
 # Install dependencies
 time apt install rsync aapt neofetch toilet ncurses-utils tsu openssl-tool ruby wget -y
 
+# Remove existing files
+tsu -c 'find . -iname '*tca*' -exec rm -rf {} \;'
+
 # Fetch the ELF and setup
 [[ "$(uname -m)" =~ 'aarch64' ]] && {
     tsu -c 'wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/master/tca_v1-cli -O ./tca_v1-cli'
