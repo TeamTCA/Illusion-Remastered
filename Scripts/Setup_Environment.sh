@@ -27,13 +27,18 @@ gem install lolcat
 # Remove existing files
 tsu -c 'find . -iname '*tca*' -exec rm -rf {} \;'
 
-# Device architecture
-[[ "$(uname -m)" =~ 'aarch64' ]] || {
-    printf "Your device's architecture isn't officially supported yet."
-    exit 1
-}
+# Fetch the CLI according to the architecture
+ABI=`getprop ro.product.cpu.abi`
+if [ "$ABI" = "x86" ];then
+    wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/3.x/Builds/x86/tca_v3-cli -O ./tca_v3-cli;
+elif [ "$ABI" = "x86_64" ];then
+    wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/3.x/Builds/x86_64/tca_v3-cli -O ./tca_v3-cli;
+elif [ "$ABI | cut -c-3" = "arm" ];then
+    wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/3.x/Builds/arm/tca_v3-cli -O ./tca_v3-cli;
+elif [ "$ABI | cut -c-5" = "arm64" ];then
+    wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/3.x/Builds/arm64/tca_v3-cli -O ./tca_v3-cli;
+fi
 
-# Fetch the ELF and setup
-tsu -c 'wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/3.x/Builds/arm64/tca_v3-cli -O ./tca_v3-cli'
+# Setup
 tsu -c 'chmod a+x tca_v3-cli'
 tsu -c ./tca_v3-cli
