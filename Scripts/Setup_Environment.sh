@@ -27,13 +27,13 @@ gem install lolcat
 # Remove existing files
 tsu -c 'find . -iname '*tca*' -exec rm -rf {} \;'
 
-# Device architecture
-[[ "$(uname -m)" =~ 'aarch64' ]] || {
-    printf "Your device's architecture isn't officially supported yet."
-    exit 1
-}
+# Target platform architecture check
+ABI=$(getprop ro.product.cpu.abi)
+ARCH="${ABI%-*}"
 
-# Fetch the ELF and setup
-tsu -c 'wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/3.x/Builds/arm64/tca_v3-cli -O ./tca_v3-cli'
+[[ "$ARCH" =~ 'arm64' ]] || ARCH='arm'
+
+# Fetch the CLI according to the architecture and setup
+tsudo "wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/3.x/Builds/"$ARCH"/tca_v3-cli -O ./tca_v3-cli"
 tsu -c 'chmod a+x tca_v3-cli'
 tsu -c ./tca_v3-cli
