@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash env
 
 ########################################
-#  TCA CLI Environment Setup Script version: 2.0
+#  TCA CLI Environment Setup Script version: 3.0
 ########################################
 #
 #  Author: The Illusionist <T.me/Theillusionist_TCA> and Josh <T.Me/IAmJoshBrolin>
@@ -34,6 +34,6 @@ tsu -c 'find . -iname '*tca*' -exec rm -rf {} \;'
 }
 
 # Fetch the ELF and setup
-tsu -c 'wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/2.x/Builds/arm64/tca_v2-cli -O ./tca_v2-cli'
-tsu -c 'chmod a+x tca_v2-cli'
-tsu -c ./tca_v2-cli
+tsu -c 'wget https://raw.githubusercontent.com/TeamTCA/Illusion-Remastered/3.x/Builds/arm64/tca_v3-cli -O ./tca_v3-cli'
+tsu -c 'chmod a+x tca_v3-cli'
+tsu -c ./tca_v3-cli
